@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef FTPRINTF_H
+# define FTPRINTF_H
 
 # include <stdarg.h>
 # include <stdio.h>
@@ -24,5 +24,6 @@ int	ft_putstr(char *str);
 int	ft_putnbr(long n, int base);
 int	ft_putmnbr(long n, int base);
 int	ft_putptr(long unsigned n);
+int	ft_printf(const char *, ...);
 
 #endif

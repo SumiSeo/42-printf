@@ -53,7 +53,7 @@ int	ft_printf(const char *format, ...)
 	va_end(ap);
 	return (count);
 }
-
+/*
 int	main(void)
 {
 	char *ptr;
@@ -76,4 +76,4 @@ int	main(void)
 	printf("original total length %d\n", original_count);
 	printf("%p\n", &ptr);
 	ft_printf("%p\n", &ptr);
-}
+}*/

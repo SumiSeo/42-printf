@@ -12,48 +12,55 @@
 
 #include "libft.h"
 
-void	ft_putnbr_basemin(int n, char base)
+int	ft_putnbr_base(unsigned int n, char base)
 {
 	long	temp;
 	long	nb;
-	char	*base_min;
-	char	*base_maj;
 	char	final[256];
 	int		i;
+	int		count;
 
+	count = 0;
 	i = 0;
-	base_min = "0123456789abcdef";
-	base_maj = "0123456789ABCDEF";
+	while (i < 256)
+	{
+		final[i] = '\0';
+		i++;
+	}
+	i = 0;
 	nb = n;
 	temp = 0;
 	if (nb == 0)
-		putchar(nb + '0');
+		count += putchar('0');
 	while (nb > 0)
 	{
 		temp = nb % 16;
 		if (temp < 10)
-		{
 			final[i++] = temp + '0';
-		}
 		else
 		{
 			if (base == 'l')
-				final[i++] = base_min[temp];
+				final[i++] = "0123456789abcdef"[temp];
 			else
-				final[i++] = base_maj[temp];
+				final[i++] = "0123456789ABCDEF"[temp];
 		}
 		nb /= 16;
 	}
+	i--;
+	count = i;
 	while (i >= 0)
-	{
 		ft_putchar(final[i--]);
-	}
+	return (count);
 }
+
+/*
 int	main(void)
 {
 	int	num;
 
-	num = 45342320;
-	printf("Real HEXA : %X\n", num);
-	ft_putnbr_basemin(num, 'b');
+	num = 4744;
+	printf("@@Real HEXA : %x\n", num);
+	ft_putnbr_base(num, 'l');
+	printf("\n%p\n", &num);
 }
+*/

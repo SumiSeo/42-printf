@@ -27,7 +27,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (*str != '%')
 		{
-			ft_putchar(*str);
+			count += ft_putchar(*str);
 		}
 		else
 		{
@@ -35,73 +35,67 @@ int	ft_printf(const char *str, ...)
 			if (*str == 'c')
 			{
 				ch = va_arg(args, int);
-				ft_putchar(ch);
+				count += ft_putchar(ch);
 			}
 			else if (*str == 's')
 			{
 				s = va_arg(args, char *);
-				ft_putstr(s);
+				count += ft_putstr(s);
 			}
 			else if (*str == 'p')
 			{
 				p = va_arg(args, void *);
-				ft_putstr(p);
-				// The *void pointer argument has to be printed in hexadecimal format
+				count += ft_putptr((long unsigned)p);
 			}
 			else if (*str == 'd')
 			{
 				num = va_arg(args, int);
-				ft_putnbr(num);
-				// Prints a decimal(base 10)number
+				count += ft_putnbr(num);
 			}
 			else if (*str == 'u')
 			{
-				// Prints an unsigned integer in base 10.
+				num = va_arg(args, unsigned int);
+				count += ft_putunbr(num);
 			}
 			else if (*str == 'x')
 			{
-				// Prints a number in hexadecimal (base 16) lowercase format
-				num = va_arg(args, int);
-				ft_putnbr_base(num, 'l');
+				num = va_arg(args, unsigned int);
+				count += ft_putnbr_base(num, 'l');
 			}
 			else if (*str == 'X')
 			{
-				num = va_arg(args, int);
-				ft_putnbr_base(num, 'b');
-				// Prints a number in hexadecimal (base 16) uppercase format
+				num = va_arg(args, unsigned int);
+				count += ft_putnbr_base(num, 'b');
 			}
 			else if (*str == '%')
 			{
-				// Prints a percent sign
 				putchar('%');
 			}
 			else
 			{
-				// handle unknow format specifiers
+				count += putchar(*str);
 			}
 		}
 		str++;
-		count++;
 	}
 	printf("total count %d\b", count);
-	return (1);
+	va_end(args);
+	return (count);
 }
 
 int	main(void)
 {
-	char	*s;
-	char	c;
 	char	*ptr;
 	int		num;
-	int		num2;
+	char	*s;
+	char	c;
 
 	num = 40;
 	ptr = "pointer address";
 	c = 'A';
 	s = "PRINT F";
 	ft_printf("I am testing character :%c\n and %s\n and %p\n and %d\n %%\n", c,
-		s, ptr, num);
-	printf("@@@@TESTTESTETEST@@@@");
-	num2 = -7;
-	printf("TEST %d", num2);
+		s, &ptr, num);
+	printf("%p\n", &ptr);
+	ft_printf("%p\n", &ptr);
 }

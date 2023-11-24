@@ -1,7 +1,9 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g3
 NAME = libftprintf.a
-SOURCE = ft_printft.c
+SOURCE_DIR = utils
+SOURCE = ft_printft.c ft_putchar.c ft_putnbr_base.c ft_putnbr.c /
+			ft_putptr.c ft_putstr.c ft_putunbr.c 
 OBJ = $(SOURCE:.c=.o)
 RM = rm -rf
 

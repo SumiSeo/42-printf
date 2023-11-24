@@ -12,24 +12,24 @@
 
 #include "libft.h"
 
-int	ft_putnbr(int n)
+int	ft_putnbr(long n, int base)
 {
-	long	nb;
-	int		i;
+	int		count;
+	char	*symbols;
 
-	i = 0;
-	nb = n;
-	if (nb < 0)
+	count = 0;
+	symbols = "0123456789abcdef";
+	if (n < 0)
 	{
-		i += ft_putchar('-');
-		nb = nb * -1;
+		write(1, "-", 1);
+		return ((ft_putnbr(-n, base) + 1));
 	}
-	if (nb < 10)
-		i += ft_putchar(nb + '0');
+	else if (n < base)
+		return (ft_putchar(symbols[n]));
 	else
 	{
-		ft_putnbr(nb / 10);
-		i += ft_putchar(nb % 10 + '0');
+		count = ft_putnbr(n / base, base);
+		return (count + ft_putnbr(n % base, base));
 	}
-	return (i);
+	return (count);
 }

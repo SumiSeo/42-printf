@@ -46,7 +46,7 @@ int	ft_putptr(long unsigned n)
 	ft_putstr("0x");
 	while (i >= 0)
 		ft_putchar(final[i--]);
-	return (count);
+	return (count + 3);
 }
 /*
 int	main(void)

@@ -19,10 +19,10 @@
 # include <unistd.h>
 
 // return void
-int	ft_putchar(char c);
+int	ft_putchar(int c);
 int	ft_putstr(char *str);
-int	ft_putnbr(int n);
-int	ft_putunbr(unsigned int n);
+int	ft_putnbr(long n, int base);
+int	ft_putmnbr(long n, int base);
 int	ft_putptr(long unsigned n);
 int	ft_putnbr_base(unsigned int n, char base);
 

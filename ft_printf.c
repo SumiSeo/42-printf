@@ -61,9 +61,13 @@ int	ft_printf(const char *str, ...)
 			else if (*str == 'x')
 			{
 				// Prints a number in hexadecimal (base 16) lowercase format
+				num = va_arg(args, int);
+				ft_putnbr_base(num, 'l');
 			}
 			else if (*str == 'X')
 			{
+				num = va_arg(args, int);
+				ft_putnbr_base(num, 'b');
 				// Prints a number in hexadecimal (base 16) uppercase format
 			}
 			else if (*str == '%')

@@ -37,6 +37,7 @@ static int	print_format(char specifier, va_list ap)
 		count += write(1, &specifier, 1);
 	return (count);
 }
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	ap;

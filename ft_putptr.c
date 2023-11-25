@@ -14,14 +14,19 @@
 
 int	ft_putptr(long unsigned n)
 {
-	long	temp;
-	long	nb;
-	char	final[256];
-	int		i;
-	int		count;
+	long unsigned	temp;
+	long unsigned	nb;
+	char			final[256];
+	int				i;
+	int				count;
 
 	count = 0;
 	i = 0;
+	if (!n)
+	{
+		ft_putstr("(nil)");
+		return (5);
+	}
 	while (i < 256)
 	{
 		final[i] = '\0';
@@ -31,7 +36,7 @@ int	ft_putptr(long unsigned n)
 	nb = n;
 	temp = 0;
 	if (nb == 0)
-		count += putchar('0');
+		count += ft_putchar('0');
 	while (nb > 0)
 	{
 		temp = nb % 16;

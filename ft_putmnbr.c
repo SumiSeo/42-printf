@@ -10,14 +10,14 @@ int	ft_putmnbr(long n, int base)
 	if (n < 0)
 	{
 		write(1, "-", 1);
-		return ((ft_putnbr(-n, base) + 1));
+		return ((ft_putmnbr(-n, base) + 1));
 	}
 	else if (n < base)
 		return (ft_putchar(symbols[n]));
 	else
 	{
-		count = ft_putnbr(n / base, base);
-		return (count + ft_putnbr(n % base, base));
+		count = ft_putmnbr(n / base, base);
+		return (count + ft_putmnbr(n % base, base));
 	}
 	return (count);
 }

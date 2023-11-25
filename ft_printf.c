@@ -24,7 +24,7 @@ static int	print_format(char specifier, va_list ap)
 	else if (specifier == 'd')
 		count += ft_putnbr(va_arg(ap, int), 10);
 	else if (specifier == 'i')
-		count += ft_putnbr(va_arg(ap, unsigned int), 10);
+		count += ft_putnbr((long)va_arg(ap, int), 10);
 	else if (specifier == 'u')
 		count += ft_putnbr(va_arg(ap, unsigned int), 10);
 	else if (specifier == 'x')
